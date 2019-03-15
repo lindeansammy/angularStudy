@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title>controller ex2</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="UserController" style="border: #ccc solid 1px;">
+	username:<input type="text" name="username" ng-model="username" placeholder="username?" />
+	password:<input type="password" name="password" ng-model="password" placeholder=" password?"/>
+	<button>submit</button>
+	<p>your username:{{username}}</p>
+	<p> your password: {{password}}</p>
+</div>
+<br/>
+<div ng-controller="InfoController" style="border: #ccc solid 1px;">
+	your hobby:<input type="text" name="hobby" ng-model="hobby" placeholder="hobby">
+	<p>your hobby is {{hobby}}</p>
+</div>
+<script type="text/javascript">
+	function UserController($scope,$log){
+       $scope.username="admin";
+       $scope.password="12345";
+       $log.info("UserController->username:"+$scope.username);
+       $log.info("UserController->password:"+$scope.password);
+	}
+	function InfoController($scope,$log){
+		$scope.hobby="football";
+		$log.info("InfoController->hobby:"+$scope.hobby);
+		$log.info("InfoController->username:"+$scope.username);
+        $log.info("InfoController->password:"+$scope.password);
+	}
+	var app=angular.module("app",[]);
+	app.controller("UserController",UserController);
+	app.controller("InfoController",InfoController);
+</script>
+</body>
+</html>

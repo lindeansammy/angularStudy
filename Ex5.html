@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title>deal with dom in controller</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+ <div class="container" ng-controller="LoginController">
+ 	<div class="login-title text-center">
+ 		<h1><small>Login</small></h1>
+ 	</div>
+ 	<div class="form">
+ 		<div class="form-group">
+ 			<div class="col=xs-12">
+ 				<div class="input-group">
+ 					<span class="input-group-addon">
+ 					 <span class="glyphicon glyphicon-user"></span>
+ 				    </span>
+ 					<input type="text" name="username" ng-model="username" class="form-control" placeholder="username..">
+ 				</div> 
+ 			</div>
+ 		</div><br><br>
+ 	
+ 	    <div class="form-group">
+ 		    <div class="col-xs-12">
+ 			    <div class="input-group">
+ 				 <span class="input-group-addon">
+ 				 <span class="glyphicon glyphicon-lock"></span>
+                 </span>
+                 <input type="password" name="password" ng-model="password" class="form-control" placeholder="password..">
+ 			    </div>
+ 		    </div>
+ 	    </div><br><br>
+ 	    <div class="form-group form-actions">
+ 		    <div class="col-sm-5 offset-5">
+ 			  <button ng-click="login()" type="submit" class="btn btn-sm btn-info">
+ 				<span class="glyphicon glyphicon-log-in"></span>
+ 				login
+ 			  </button>
+ 			  <button ng-click="reset()" class="btn btn-sm btn-info">
+ 				<span class="glyphicon glyphicon-off"></span>
+ 				reset
+ 			  </button>
+ 		    </div>
+ 	    </div>
+    </div>
+ </div>
+ <script type="text/javascript">
+ 	function LoginController($scope){
+ 		$scope.login=function(){
+ 			if($scope.username=="admin" && $scope.password=="admin"){
+ 				alert("login sucess");
+ 			}else{
+ 				alert("wrong username or password");
+ 			}
+ 		}
+ 		$scope.reset=function(){
+ 			if($scope.username!="" || $scope.password!=""){
+ 				$scope.username="";
+ 				$scope.password="";
+ 			}
+ 		}
+ 	}
+ 	var app=angular.module("app",[]);
+ 	app.controller("LoginController",LoginController);
+ </script>
+</body>
+</html>

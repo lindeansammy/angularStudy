@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+ <html ng-app>
+ <head>
+ 	<meta charset="utf-8">
+ 	<title>ch01_03</title>
+ 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+ </head>
+ <body ng-init="person={'name':'jams'};arr=['angularjs_arr01','angularjs_arr2','angularjs_arr3']">
+    <div>{{"hello world"}}</div>
+    <div>{{"this is my first angular hahaha"}}</div>
+    <h5>some base stuff</h5>
+    <div>1+2={{1+2}}</div>
+    <div>"hello"+"bacon"={{"hello"+"bacon"}}</div>
+    <h5>even true or false</h5>
+    <div>1||0={{1||0}}</div>
+    <div>true && false={{true && false}}</div>
+
+    <h5>how to use ng-init with array</h5>
+    <div>{{person.name}}</div>
+    <div>{{arr[2]}}</div>
+
+    <h5>bind input and display</h5>
+    <div ng-app="">
+      <p>Name: <input type="text" ng-model="name"></p>
+      <p ng-bind="name"></p>
+    </div>
+ </body>
+ </html>
